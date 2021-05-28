@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=xyaOGyfSiltM85LHtKFP8lQyVV9g3HWM"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+
+    // 获取当前经纬度，调用showMap方法，显示地图
+    let gl = window.navigator.geolocation;
+    gl.getCurrentPosition((result)=>{
+      let long = result.coords.longitude;
+      let lat = result.coords.latitude;
+      console.log(long, lat);
+      let coder = new BMap.Geocoder();
+      let point = new BMap.Point(long, lat) // 坐标点
+      coder.getLocation(point, result=>{
+        console.log(result)
+      })
+    })
+
+  </script>
+</html>

@@ -1,0 +1,16 @@
+#设置客户端连接服务器端的编码
+set names utf8;
+#丢弃数据库，如果存在
+drop database if exists xd;
+#创建数据库，设置存储的编码
+create database xd charset=utf8;
+#进入数据库
+use xd;
+/*导航栏*/
+create table nar_name(
+    uid int primary key auto_ increment,
+    name varchar(12), 
+);
+insert into nar_name values(null,'演出');
+insert into nar_name values(null,'周边');
+insert into nar_name values(null,'众筹');
